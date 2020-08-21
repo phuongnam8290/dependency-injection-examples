@@ -1,9 +1,6 @@
 package com.azure.dependencyinjectionexamples;
 
-import com.azure.dependencyinjectionexamples.controllers.ConstructorInjectedController;
-import com.azure.dependencyinjectionexamples.controllers.MyController;
-import com.azure.dependencyinjectionexamples.controllers.PropertyInjectedController;
-import com.azure.dependencyinjectionexamples.controllers.SetterInjectedController;
+import com.azure.dependencyinjectionexamples.controllers.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -30,6 +27,9 @@ public class DependencyInjectionExamplesApplication {
         System.out.println("--------- Constructor");
         ConstructorInjectedController constructorInjectedController = ctx.getBean("constructorInjectedController", ConstructorInjectedController.class);
         System.out.println(constructorInjectedController.getGreeting());
+
+        I18NController i18NController = ctx.getBean("i18NController", I18NController.class);
+        System.out.println(i18NController.sayHello());
     }
 
 }
